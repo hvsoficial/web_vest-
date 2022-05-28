@@ -42,6 +42,8 @@ export default function Login_In() {
             })
         if (!user) {
             alert('This email is not registered!')
+            setEmail("")
+            setPassword("")
 
         }
         else if ((email == user.email) && (password == user.password)) {
@@ -50,6 +52,8 @@ export default function Login_In() {
         }
         else {
             alert('Password or email is wrong!')
+            setEmail("")
+            setPassword("")
         }
 
 
