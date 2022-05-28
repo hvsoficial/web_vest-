@@ -76,6 +76,7 @@
 
 #page-estabelecimento .estabelecimento-details .images button.active {
   opacity: 1;
+  box-shadow: 0 0 2em slategrey;
 }
 
 #page-estabelecimento .estabelecimento-details .images button img {

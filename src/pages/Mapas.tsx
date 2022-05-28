@@ -51,6 +51,14 @@ const EstabelecimentoMap: React.FC = () => {
 
     return (
         <div id="page-map">
+            <main>
+
+                <div className="busca">
+                    <label htmlFor="name">Nome</label>
+                    <input id="name" />
+                </div>
+
+            </main>
             {/*<aside>
                 <header>
                     {/*<img src={mapMarker} alt="Logo Happy" />
@@ -91,7 +99,11 @@ const EstabelecimentoMap: React.FC = () => {
                         </Popup>
                     </Marker>
                 ))}
+                <div>
+                </div>
             </Map>
+
+
 
             <Link to="/estabelecimentos/create" className="create-estabelecimento">
                 <FiPlus size={32} color="#fff" />
