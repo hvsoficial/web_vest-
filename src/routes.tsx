@@ -8,7 +8,7 @@ import CreateEstabelecimento from './pages/CreateMapa';
 import Recover from './conponentes/Recover'
 import Star from './conponentes/Star'
 import Teste from './pages/teste'
-import LinkMap from './pages/Link'
+import LinkMap from './conponentes/Link'
 import EditMapa from './pages/EditMapa';
 
 
