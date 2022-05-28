@@ -38,6 +38,7 @@ const Recover: React.FC = () => {
 
                 if (!message) {
                     console.log(response)
+                    setEmail("")
                     return alert('Failed to fetch user data!')
                 }
 
