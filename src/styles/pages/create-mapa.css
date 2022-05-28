@@ -6,7 +6,7 @@
   flex: 1;
 }
 
-form.create-estabelecimento-form {
+.create-estabelecimento-form {
   background: #fff;
   border: 1px solid #d3e2e5;
   border-radius: 20px;
@@ -16,21 +16,21 @@ form.create-estabelecimento-form {
   width: 700px;
 }
 
-form.create-estabelecimento-form .leaflet-container {
+.create-estabelecimento-form .leaflet-container {
   border: 1px solid #d3e2e5;
   border-radius: 20px;
   margin-bottom: 40px;
 }
 
-form.create-estabelecimento-form fieldset {
+.create-estabelecimento-form fieldset {
   border: 0;
 }
 
-form.create-estabelecimento-form fieldset+fieldset {
+.create-estabelecimento-form fieldset+fieldset {
   margin-top: 80px;
 }
 
-form.create-estabelecimento-form fieldset legend {
+.create-estabelecimento-form fieldset legend {
   border-bottom: 1px solid #d3e2e5;
   color: #5c8599;
   font-size: 32px;
@@ -41,26 +41,31 @@ form.create-estabelecimento-form fieldset legend {
   width: 100%;
 }
 
-form.create-estabelecimento-form .input-block+.input-block {
+.create-estabelecimento-form .address-block {
+  display: flex;
   margin-top: 24px;
 }
 
-form.create-estabelecimento-form .input-block label {
-  color: #8fa7b3;
-  display: flex;
-  line-height: 24px;
-  margin-bottom: 8px;
+.create-estabelecimento-form .address-block .complement-block {
+  margin-right: 40px;
+  width: 400px;
 }
 
-form.create-estabelecimento-form .input-block label span {
-  color: #8fa7b3;
-  font-size: 14px;
-  line-height: 24px;
-  margin-left: 24px;
+.create-estabelecimento-form .address-block .nuber-block {
+  width: 100px;
 }
 
-form.create-estabelecimento-form .input-block input,
-form.create-estabelecimento-form .input-block textarea {
+.create-estabelecimento-form .address-block input[type=file] {
+  display: none;
+}
+
+.create-estabelecimento-form .address-block .button-select {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.create-estabelecimento-form .address-block input,
+.create-estabelecimento-form .address-block textarea {
   background: #f5f8fa;
   border: 1px solid #d3e2e5;
   border-radius: 20px;
@@ -69,12 +74,12 @@ form.create-estabelecimento-form .input-block textarea {
   width: 100%;
 }
 
-form.create-estabelecimento-form .input-block input {
+.create-estabelecimento-form .address-block input {
   height: 64px;
   padding: 0 16px;
 }
 
-form.create-estabelecimento-form .input-block textarea {
+.create-estabelecimento-form .address-block textarea {
   line-height: 28px;
   max-height: 240px;
   min-height: 120px;
@@ -82,21 +87,69 @@ form.create-estabelecimento-form .input-block textarea {
   resize: vertical;
 }
 
-form.create-estabelecimento-form .input-block .images-container {
+.create-estabelecimento-form .address-block label {
+  color: #8fa7b3;
+  display: flex;
+  line-height: 24px;
+  margin-bottom: 8px;
+}
+
+.create-estabelecimento-form .input-block {
+  margin-top: 24px;
+}
+
+.create-estabelecimento-form .input-block label {
+  color: #8fa7b3;
+  display: flex;
+  line-height: 24px;
+  margin-bottom: 8px;
+}
+
+.create-estabelecimento-form .input-block label span {
+  color: #8fa7b3;
+  font-size: 14px;
+  line-height: 24px;
+  margin-left: 24px;
+}
+
+.create-estabelecimento-form .input-block input,
+.create-estabelecimento-form .input-block textarea {
+  background: #f5f8fa;
+  border: 1px solid #d3e2e5;
+  border-radius: 20px;
+  color: #5c8599;
+  outline: none;
+  width: 100%;
+}
+
+.create-estabelecimento-form .input-block input {
+  height: 64px;
+  padding: 0 16px;
+}
+
+.create-estabelecimento-form .input-block textarea {
+  line-height: 28px;
+  max-height: 240px;
+  min-height: 120px;
+  padding: 16px;
+  resize: vertical;
+}
+
+.create-estabelecimento-form .input-block .images-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   column-gap: 16px;
   row-gap: 8px;
 }
 
-form.create-estabelecimento-form .input-block .images-container img {
+.create-estabelecimento-form .input-block .images-container img {
   border-radius: 20px;
   height: 96px;
   object-fit: cover;
   width: 100%;
 }
 
-form.create-estabelecimento-form .input-block .images-container .new-image {
+.create-estabelecimento-form .input-block .images-container .new-image {
   align-items: center;
   background: #f5f8fa;
   border: 1px dashed #96d2f0;
@@ -107,16 +160,16 @@ form.create-estabelecimento-form .input-block .images-container .new-image {
   justify-content: center;
 }
 
-form.create-estabelecimento-form .input-block input[type=file] {
+.create-estabelecimento-form .input-block input[type=file] {
   display: none;
 }
 
-form.create-estabelecimento-form .input-block .button-select {
+.create-estabelecimento-form .input-block .button-select {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
-form.create-estabelecimento-form .input-block .button-select button {
+.create-estabelecimento-form .input-block .button-select button {
   background: #f5f8fa;
   border: 1px solid #d3e2e5;
   color: #5c8599;
@@ -124,22 +177,22 @@ form.create-estabelecimento-form .input-block .button-select button {
   height: 64px;
 }
 
-form.create-estabelecimento-form .input-block .button-select button.active {
+.create-estabelecimento-form .input-block .button-select button.active {
   background: #edfff6;
   border: 1px solid #a1e9c5;
   color: #37c77f;
 }
 
-form.create-estabelecimento-form .input-block .button-select button:first-child {
+.create-estabelecimento-form .input-block .button-select button:first-child {
   border-radius: 20px 0px 0px 20px;
 }
 
-form.create-estabelecimento-form .input-block .button-select button:last-child {
+.create-estabelecimento-form .input-block .button-select button:last-child {
   border-left: 0;
   border-radius: 0 20px 20px 0;
 }
 
-form.create-estabelecimento-form button.confirm-button {
+.create-estabelecimento-form button.confirm-button {
   align-items: center;
   background: #3cdc8c;
   border: 0;
@@ -155,10 +208,10 @@ form.create-estabelecimento-form button.confirm-button {
   width: 100%;
 }
 
-form.create-estabelecimento-form button.confirm-button svg {
+.create-estabelecimento-form button.confirm-button svg {
   margin-right: 16px;
 }
 
-form.create-estabelecimento-form button.confirm-button:hover {
+.create-estabelecimento-form button.confirm-button:hover {
   background: #36cf82;
 }
