@@ -1,10 +1,8 @@
-import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Map, Marker, TileLayer } from "react-leaflet";
 import { FaWhatsapp, FaPhone } from "react-icons/fa";
 import { FiClock, FiInfo } from "react-icons/fi";
-import { Map, Marker, TileLayer } from "react-leaflet";
 
 import api from "../services/api";
 import mapIcon from "../utils/mapicon";
