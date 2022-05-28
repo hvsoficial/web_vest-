@@ -12,7 +12,23 @@ import '../styles/pages/create-mapa.css'
 //import "../styles/pages/create-mapa.css"
 
 const CreateEstabelecimento: React.FC = () => {
-  const [position, setPosition] = useState({ latitude: 0, longitude: 0 })
+
+  const separatorAddress = "*,*"
+  const separatorLink = "@"
+
+  const concate = ""
+
+  const lat = -16.7526376
+  const lng = -48.5034654
+
+  const [address1, setAddress1] = useState('')
+  const [complement, setComplement] = useState('')
+  const [number, setNumber] = useState('')
+  const [cep, setCep] = useState('')
+  const [link, setLink] = useState('')
+  const [latitude, setLatitude] = useState(0)
+  const [longitude, setLongitude] = useState(0)
+
   const [name, setName] = useState('')
   const [telefone, setFone] = useState('')
   const [about, setAbout] = useState('')
@@ -25,9 +41,32 @@ const CreateEstabelecimento: React.FC = () => {
 
   const { push } = useHistory()
 
+  function handleLink() {
+
+    if (!link.length) {
+      setLatitude(0)
+      setLongitude(0)
+      setLink("")
+
+    }
+    const abstraction = link.split(separatorLink)
+    const link_abstraction = abstraction[1].split(",")
+
+    const auxlat = link_abstraction[0]
+    const auxlng = link_abstraction[1]
+
+    const lat = parseFloat(auxlat)
+    const lng = parseFloat(auxlng)
+
+    setLatitude(lat)
+    setLongitude(lng)
+    setLink("")
+  }
+
   function handleMapClick(event: LeafletMouseEvent) {
     const { lat, lng } = event.latlng
-    setPosition({ latitude: lat, longitude: lng })
+    setLatitude(lat)
+    setLongitude(lng)
   }
 
   function handleSelectImages(event: ChangeEvent<HTMLInputElement>) {
@@ -47,12 +86,13 @@ const CreateEstabelecimento: React.FC = () => {
   function handleSubmit(event: FormEvent) {
     event.preventDefault()
 
-    const { latitude, longitude } = position
+    const address = concate.concat(address1, separatorAddress, complement, separatorAddress, number, separatorAddress, cep)
 
     const data = new FormData()
 
     data.append('name', name)
     data.append('about', about)
+    data.append('address', address)
     data.append('instructions', instructions)
     data.append('opening_hours', opening_hours)
     data.append('telefone', telefone)
@@ -87,26 +127,16 @@ const CreateEstabelecimento: React.FC = () => {
       <Sidebar />
 
       <main>
-        <form className="create-estabelecimento-form" onSubmit={handleSubmit}>
+        <div className="create-estabelecimento-form">
           <fieldset>
             <legend>Dados</legend>
-
-            <Map center={[-16.3325529, -48.9549526]} style={{ width: '100%', height: 280 }} zoom={14}
-              onclick={handleMapClick}>
-              <TileLayer url={`https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}
-              />
-
-              {position.latitude !== 0 && (
-                <Marker interactive={false} icon={mapIcon} position={[position.latitude, position.longitude]} />
-              )}
-            </Map>
 
             <div className="input-block">
               <label htmlFor="name">Nome</label>
               <input id="name" value={name} onChange={event => setName(event.target.value)} />
             </div>
 
-            <div className="input-block">
+            <div className="input-block" style={{ marginBottom: '50px' }}>
               <label htmlFor="about">Sobre <span>Máximo de 300 caracteres</span></label>
               <textarea id="name" maxLength={300} value={about} onChange={event => setAbout(event.target.value)} />
             </div>
@@ -116,7 +146,7 @@ const CreateEstabelecimento: React.FC = () => {
 
               <div className="images-container">
                 {selectedImagesPreview.map(image => (
-                  <img key={image} src={image} alt="Local Estabelecimento" />
+                  <img key={image} src={image} alt="Local do Estabelecimento" />
                 ))}
 
                 <label htmlFor="image[]" className="new-image">
@@ -125,6 +155,45 @@ const CreateEstabelecimento: React.FC = () => {
               </div>
 
               <input type="file" id="image[]" multiple onChange={handleSelectImages} />
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Dados da localização</legend>
+
+            <div className="input-block" style={{ marginBottom: '24px' }}>
+              <label htmlFor="link">Link <span>Insira o link da localização do local, caso necessite</span></label>
+              <input id="link" value={link} onChange={event => setLink(event.target.value)} />
+              <button className="confirm-button" type="submit" style={{ marginTop: '24px' }} onClick={handleLink}> Confirmar </button>
+            </div>
+
+            <Map center={[lat, lng]} style={{ width: '100%', height: 280 }} zoom={14}
+              onclick={handleMapClick}>{ }
+              <TileLayer url={`https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}
+              />
+
+              {latitude !== 0 && (
+                <Marker interactive={false} icon={mapIcon} position={[latitude, longitude]} />
+              )}
+            </Map>
+
+            <div className="input-block">
+              <label htmlFor="address1">Endereco</label>
+              <input id="address1" value={address1} onChange={event => setAddress1(event.target.value)} />
+            </div>
+            <div className="address-block" >
+              <div className="complement-block">
+                <label htmlFor="complement">Complemento</label>
+                <input id="complement" value={complement} onChange={event => setComplement(event.target.value)} />
+              </div>
+              <div className="nuber-block">
+                <label htmlFor="number">Numero</label>
+                <input id="number" value={number} onChange={event => setNumber(event.target.value)} />
+              </div>
+
+            </div >
+            <div className="input-block">
+              <label htmlFor="cep">CEP</label>
+              <input id="cep" value={cep} onChange={event => setCep(event.target.value)} />
             </div>
           </fieldset>
 
@@ -174,8 +243,8 @@ const CreateEstabelecimento: React.FC = () => {
             </div>
           </fieldset>
 
-          <button className="confirm-button" type="submit"> Confirmar </button>
-        </form>
+          <button className="confirm-button" type="submit" onClick={handleSubmit}  > Salvar </button>
+        </div>
       </main>
     </div>
   )
