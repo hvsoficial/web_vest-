@@ -49,6 +49,9 @@ export default function Login() {
 
                     if (!message) {
                         console.log(response)
+                        setEmail("")
+                        setPassword1("")
+                        setPassword2("")
                         return alert('Failed to fetch user data!')
                     }
 
