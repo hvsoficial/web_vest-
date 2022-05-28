@@ -7,6 +7,9 @@ import Estabelecimento from './pages/Mapa';
 import CreateEstabelecimento from './pages/CreateMapa';
 import Recover from './conponentes/Recover'
 import Star from './conponentes/Star'
+import Teste from './pages/teste'
+import LinkMap from './pages/Link'
+import EditMapa from './pages/EditMapa';
 
 
 
@@ -19,9 +22,12 @@ function Routes() {
                 <Route path="/app" component={EstabelecimentoMap} />
                 <Route path="/recover" component={Recover} />
                 <Route path="/star" component={Star} />
+                <Route path="/teste" component={Teste} />
+                <Route path="/link" component={LinkMap} />
 
                 <Route path="/estabelecimentos/create" component={CreateEstabelecimento} />
                 <Route path="/estabelecimentos/:id" component={Estabelecimento} />
+                <Route path="/estabelecimentosedit/:id" component={EditMapa} />
             </Switch>
         </BrowserRouter>
     );
