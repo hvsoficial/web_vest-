@@ -7,7 +7,7 @@ import { FiPlus } from "react-icons/fi"
 import api from "../services/api"
 import mapIcon from "../utils/mapicon"
 import Sidebar from "../conponentes/Sidebar"
-import LinkMap from "../pages/Link"
+//import LinkMap from "../conponentes/Link"
 
 import '../styles/pages/create-mapa.css'
 //import "../styles/pages/create-mapa.css"

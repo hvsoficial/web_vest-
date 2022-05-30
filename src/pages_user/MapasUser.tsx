@@ -21,7 +21,7 @@ interface Estabelecimento {
     // images: { id: number, url: string }[]
 }
 
-const EstabelecimentoMap: React.FC = () => {
+const EstabelecimentoMapUser: React.FC = () => {
 
 
     const [estabelecimentos, setEstabelecimento] = useState<Estabelecimento[]>([] as Estabelecimento[])
@@ -51,29 +51,6 @@ const EstabelecimentoMap: React.FC = () => {
 
     return (
         <div id="page-map">
-            <main>
-
-                <div className="busca">
-                    <label htmlFor="name">Nome</label>
-                    <input id="name" />
-                </div>
-
-            </main>
-            {/*<aside>
-                <header>
-                    {/*<img src={mapMarker} alt="Logo Happy" />
-
-                    <h2>Escolha um estabelecimento no mapa</h2>
-                    <p>Ajude o meio ambiente</p>
-                </header>
-
-                <footer>
-                    <strong> </strong>
-                    <span>  </span>
-                </footer>
-            </aside>*/}
-
-
             <Map center={[-16.3325529, -48.9549526]} zoom={14} style={{ height: '100%', width: '100%' }}>
                 <TileLayer url={`https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`} />
                 {estabelecimentos.map(estabelecimento => (
@@ -87,14 +64,8 @@ const EstabelecimentoMap: React.FC = () => {
                     </Marker>
                 ))}
             </Map>
-
-
-
-            <Link to="/estabelecimentos/create" className="create-estabelecimento">
-                <FiPlus size={32} color="#fff" />
-            </Link>
         </div>
     )
 }
 
-export default EstabelecimentoMap
+export default EstabelecimentoMapUser

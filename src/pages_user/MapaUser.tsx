@@ -31,7 +31,7 @@ interface RouteParams {
   id: string
 }
 
-const Estabelecimento: React.FC = () => {
+const EstabelecimentoUser: React.FC = () => {
   const [estabelecimento, setEstabelecimento] = useState<Estabelecimento>()
   const [indexImageActive, setIndexImageActive] = useState(0)
   const params = useParams<RouteParams>()
@@ -135,4 +135,4 @@ const Estabelecimento: React.FC = () => {
   )
 }
 
-export default Estabelecimento
+export default EstabelecimentoUser
