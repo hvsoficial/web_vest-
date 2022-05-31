@@ -48,14 +48,24 @@ const EstabelecimentoMapUser: React.FC = () => {
     //       })
     //  }, [])
 
-
+    {/* */ }
     return (
         <div id="page-map">
             <Map center={[-16.3325529, -48.9549526]} zoom={14} style={{ height: '100%', width: '100%' }}>
+                {/* A classe Map necessita da propriedade center que receber como parâmetro dois números representados por x e y 
+            o x recebe a latitude e o y a longitude que são utilizados para definir o centro do mapa ao qual será renderizado 
+            a zoom define o foco e style recebe a estilo que o mapa aparece */}
                 <TileLayer url={`https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`} />
+                {/* O TileLayer recebe a propriedade url que cotem a url da api que fornece o mapa 
+                nesta url e contido o access_token que e o validador de permissão de acesso, para poder utilizar os dados do mapa,
+                sem um access_token valido não e possível renderizar o mapa */}
                 {estabelecimentos.map(estabelecimento => (
                     <Marker key={estabelecimento.id} position={[estabelecimento.latitude, estabelecimento.longitude]} icon={mapIcon} >
+                        {/* O Marker tem a função de marcar postos no mapa necessitando da Key que é o identificador do ponto, 
+                        o position que recebe a posição do ponto a ser marcado necessitando dos mesmos parâmetro que o certer do Map
+                        e o icon que recebe as informações do ícone que o ponto recebera */}
                         <Popup closeButton={false} minWidth={240} maxWidth={240} className="map-popup">
+                            {/* O Popup gera um popup após ser clicado em um Marker */}
                             {estabelecimento.name}
                             <Link to={`/estabelecimentos/${estabelecimento.id}`}>
                                 <FiActivity size={20} color="#fff" />
