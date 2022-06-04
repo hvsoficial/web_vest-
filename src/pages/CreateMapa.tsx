@@ -226,7 +226,7 @@ const CreateEstabelecimento: React.FC = () => {
             </div>
             <div className="input-block">
               <label htmlFor="telefone">Telefone<span>O numero tem que ser composto pelo DDI + DDD + numero de telefone Ex.: +55 62 99999 9999</span></label>
-              <input id="telefone" value={telephone} onChange={event => setFone(event.target.value)} />
+              <input id="telephone" value={telephone} onChange={event => setFone(event.target.value)} />
             </div>
 
             <div className="input-block">
