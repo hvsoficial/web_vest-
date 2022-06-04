@@ -1,9 +1,9 @@
 import React, { FormEvent, useState } from "react";
 import Form from "react-bootstrap/Form";
 import { useHistory } from "react-router-dom"
-import "../styles/conponents/login.In.css";
 import api from "../services/api"
 import { Link } from 'react-router-dom'
+import "../styles/conponents/login.In.css";
 
 interface User {
     email: string,
@@ -61,9 +61,9 @@ export default function Login_In() {
     }
     return (
 
-        <div className="Login" onSubmit={handleSubmit}>
+        <div className="LoginIn" onSubmit={handleSubmit}>
             <Form>
-                <Form.Group className="box" controlId="email">
+                <Form.Group className="boxLoginIn" controlId="emailLoginIn">
                     <Form.Label>User</Form.Label>
                     <Form.Control
                         autoFocus
@@ -72,7 +72,7 @@ export default function Login_In() {
                         onChange={(e) => setEmail(e.target.value)}
                     />
                 </Form.Group>
-                <Form.Group className="box" controlId="password">
+                <Form.Group className="boxLoginIn" controlId="passwordLoginIn">
                     <Form.Label>Password</Form.Label>
                     <Form.Control
                         type="password"
@@ -80,10 +80,13 @@ export default function Login_In() {
                         onChange={(e) => setPassword(e.target.value)}
                     />
                 </Form.Group>
-                <button className="Login" type="submit" disabled={!validateForm()}>
-                    Singn Up
-                </button>
             </Form>
+            <div className="PositionButtonLoginIn">
+                <button className="LoginInClick" type="submit" disabled={!validateForm()}>
+                    Sign In
+                </button>
+
+            </div>
 
             <div className="Recover">
 

@@ -65,13 +65,13 @@ const EstabelecimentoMap: React.FC = () => {
                 <div className="user">
                     <Link to="/loginIn" >
                         <button className="lodin">
-                            <label htmlFor="name" >Longin-In</label>
+                            <label htmlFor="name" >Sign In</label>
                         </button>
                     </Link>
                     <label style={{ color: 'black' }}> / </label>
                     <Link to="/loginUp" >
                         <button className="lodin">
-                            <label htmlFor="name" >Longin-Up</label>
+                            <label htmlFor="name" >Sign Up</label>
                         </button>
                     </Link>
                 </div>

@@ -17,11 +17,10 @@ const CreateEstabelecimento: React.FC = () => {
   const separatorLink = "@"
 
   const concate = ""
+  const lat = -16.3325529
+  const lng = -48.9549526
 
-  const lat = -16.7526376
-  const lng = -48.5034654
-
-  const [address1, setAddress1] = useState('')
+  const [road, setRoad] = useState('')
   const [complement, setComplement] = useState('')
   const [number, setNumber] = useState('')
   const [cep, setCep] = useState('')
@@ -30,7 +29,8 @@ const CreateEstabelecimento: React.FC = () => {
   const [longitude, setLongitude] = useState(0)
 
   const [name, setName] = useState('')
-  const [telefone, setFone] = useState('')
+  const [cnpj, setCnpj] = useState('')
+  const [telephone, setFone] = useState('')
   const [about, setAbout] = useState('')
   const [instructions, setInstructions] = useState('')
   const [opening_hours, setOpeningHours] = useState('')
@@ -41,6 +41,7 @@ const CreateEstabelecimento: React.FC = () => {
 
   const { push } = useHistory()
 
+
   function handleLink() {
 
     if (!link.length) {
@@ -49,6 +50,7 @@ const CreateEstabelecimento: React.FC = () => {
       setLink("")
 
     }
+
     const abstraction = link.split(separatorLink)
     const link_abstraction = abstraction[1].split(",")
 
@@ -86,16 +88,19 @@ const CreateEstabelecimento: React.FC = () => {
   function handleSubmit(event: FormEvent) {
     event.preventDefault()
 
-    const address = concate.concat(address1, separatorAddress, complement, separatorAddress, number, separatorAddress, cep)
+    //const road = concate.concat(address1, separatorAddress, complement, separatorAddress, number, separatorAddress, cep)
 
     const data = new FormData()
-
     data.append('name', name)
     data.append('about', about)
-    data.append('address', address)
+    data.append('cnpj', cnpj)
+    data.append('road', road)
+    data.append('complement', complement)
+    data.append('number', number)
+    data.append('cep', cep)
     data.append('instructions', instructions)
     data.append('opening_hours', opening_hours)
-    data.append('telefone', telefone)
+    data.append('telephone', telephone)
     data.append('open_on_weekends', String(open_on_weekends))
     data.append('zap', String(zap))
     data.append('latitude', String(latitude))
@@ -106,7 +111,7 @@ const CreateEstabelecimento: React.FC = () => {
       .then(() => {
         alert('Cadastro realizado com Sucesso!')
 
-        push('/app')
+        push('/appadm')
       })
       .catch(({ response }) => {
         const { message, errors } = response.data
@@ -134,6 +139,11 @@ const CreateEstabelecimento: React.FC = () => {
             <div className="input-block">
               <label htmlFor="name">Nome</label>
               <input id="name" value={name} onChange={event => setName(event.target.value)} />
+            </div>
+
+            <div className="input-block">
+              <label htmlFor="cnpj">CNPJ</label>
+              <input id="name" value={cnpj} onChange={event => setCnpj(event.target.value)} />
             </div>
 
             <div className="input-block" style={{ marginBottom: '50px' }}>
@@ -178,7 +188,7 @@ const CreateEstabelecimento: React.FC = () => {
 
             <div className="input-block">
               <label htmlFor="address1">Endereco</label>
-              <input id="address1" value={address1} onChange={event => setAddress1(event.target.value)} />
+              <input id="address1" value={road} onChange={event => setRoad(event.target.value)} />
             </div>
             <div className="address-block" >
               <div className="complement-block">
@@ -211,7 +221,7 @@ const CreateEstabelecimento: React.FC = () => {
             </div>
             <div className="input-block">
               <label htmlFor="telefone">Telefone<span>O numero tem que ser composto pelo DDI + DDD + numero de telefone Ex.: +55 62 99999 9999</span></label>
-              <input id="telefone" value={telefone} onChange={event => setFone(event.target.value)} />
+              <input id="telefone" value={telephone} onChange={event => setFone(event.target.value)} />
             </div>
 
             <div className="input-block">

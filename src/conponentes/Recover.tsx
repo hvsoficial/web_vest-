@@ -77,41 +77,41 @@ const Recover: React.FC = () => {
     }
     return (
         <div id="Login-page">
-            <main>
-                <form className="Login-user-form" >
+            <form className="Login-user-form" >
 
-                    <legend className="Dados">Recover Password</legend>
+                <legend className="Dados" style={{ color: 'black' }}>Recover Password</legend>
 
-                    <div className="Login" onSubmit={handleSubmit}>
-                        <Form>
-                            <Form.Group className="box" controlId="email">
-                                <Form.Label>Email</Form.Label>
-                                <Form.Control
-                                    autoFocus
-                                    type="email"
-                                    value={email}
-                                    onChange={event => setEmail(event.target.value)}
-                                />
-                            </Form.Group>
-                            <Form.Group className="box" controlId="password">
-                                <Form.Label>New password</Form.Label>
-                                <Form.Control
-                                    type="password"
-                                    value={password}
-                                    onChange={event => setPassword(event.target.value)}
-                                />
-                            </Form.Group>
-                            <button className="Login" type="submit" disabled={!validateForm()}>
-                                To save
-                            </button>
-                        </Form>
+                <div className="Recover" onSubmit={handleSubmit}>
+                    <Form>
+                        <Form.Group className="box" controlId="emailRecover">
+                            <Form.Label>Email</Form.Label>
+                            <Form.Control
+                                autoFocus
+                                type="email"
+                                value={email}
+                                onChange={event => setEmail(event.target.value)}
+                            />
+                        </Form.Group>
+                        <Form.Group className="box" controlId="passwordRecover">
+                            <Form.Label>New password</Form.Label>
+                            <Form.Control
+                                type="password"
+                                value={password}
+                                onChange={event => setPassword(event.target.value)}
+                            />
+                        </Form.Group>
+                    </Form>
 
-                    </div>
+                </div>
 
+                <div className="PositionButtonRecover">
+                    <button className="RecoverClick" type="submit" disabled={!validateForm()}>
+                        To save
+                    </button>
+                </div>
 
-                </form>
+            </form>
 
-            </main>
 
         </div>
 

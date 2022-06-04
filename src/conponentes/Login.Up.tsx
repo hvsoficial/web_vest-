@@ -84,9 +84,9 @@ export default function Login() {
     }
     return (
 
-        <div className="Login" onSubmit={handleSubmit}>
+        <div className="LoginUp" onSubmit={handleSubmit}>
             <Form >
-                <Form.Group className="box" controlId="name">
+                <Form.Group className="box" controlId="nameLoginUp">
                     <Form.Label>Name</Form.Label>
                     <Form.Control
                         autoFocus
@@ -95,7 +95,7 @@ export default function Login() {
                         onChange={event => setName(event.target.value)}
                     />
                 </Form.Group>
-                <Form.Group className="box" controlId="email">
+                <Form.Group className="box" controlId="emailLoginUp">
                     <Form.Label>Email</Form.Label>
                     <Form.Control
                         autoFocus
@@ -104,7 +104,7 @@ export default function Login() {
                         onChange={event => setEmail(event.target.value)}
                     />
                 </Form.Group>
-                <Form.Group className="box" controlId="password">
+                <Form.Group className="box" controlId="passwordLoginUp">
                     <Form.Label>Password</Form.Label>
                     <Form.Control
                         type="password"
@@ -112,7 +112,7 @@ export default function Login() {
                         onChange={event => setPassword1(event.target.value)}
                     />
                 </Form.Group>
-                <Form.Group className="box" controlId="password">
+                <Form.Group className="box" controlId="passwordLoginUp">
                     <Form.Label>Confirm the Password</Form.Label>
                     <Form.Control
                         type="password"
@@ -120,10 +120,14 @@ export default function Login() {
                         onChange={event => setPassword2(event.target.value)}
                     />
                 </Form.Group>
-                <button className="Login" type="submit" disabled={!validateForm()}>
-                    Singn Up
-                </button>
             </Form>
+
+            <div className="PositionButtonLoginUp">
+                <button className="LoginUpClick" type="submit" disabled={!validateForm()}>
+                    Sign Up
+                </button>
+
+            </div>
 
         </div>
 

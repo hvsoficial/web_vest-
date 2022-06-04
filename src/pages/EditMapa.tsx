@@ -14,7 +14,7 @@ import '../styles/pages/edit-mapa.css'
 interface Estabelecimento {
   id: number,
   name: string,
-  telefone: string,
+  telephone: string,
   latitude: number,
   longitude: number,
   address: string,
@@ -56,7 +56,7 @@ const EditMapa: React.FC = () => {
   const [longitude, setLongitude] = useState(0)
 
   const [name, setName] = useState('')
-  const [telefone, setFone] = useState('')
+  const [telephone, setFone] = useState('')
   const [about, setAbout] = useState('')
   const [instructions, setInstructions] = useState('')
   const [opening_hours, setOpeningHours] = useState('')
@@ -139,7 +139,7 @@ const EditMapa: React.FC = () => {
     data.append('address', address)
     data.append('instructions', instructions)
     data.append('opening_hours', opening_hours)
-    data.append('telefone', telefone)
+    data.append('telefone', telephone)
     data.append('open_on_weekends', String(open_on_weekends))
     data.append('zap', String(zap))
     data.append('latitude', String(latitude))
@@ -267,7 +267,7 @@ const EditMapa: React.FC = () => {
             </div>
             <div className="input-block">
               <label htmlFor="telefone">Telefone<span>O numero tem que ser composto pelo DDI + DDD + numero de telefone Ex.: +55 62 99999 9999</span></label>
-              <input id="telefone" value={telefone} onChange={event => setFone(event.target.value)} />
+              <input id="telefone" value={telephone} onChange={event => setFone(event.target.value)} />
             </div>
 
             <div className="input-block">
