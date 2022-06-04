@@ -72,20 +72,26 @@ const Teste: React.FC = () => {
   }
 
   function handleLink() {
-    const abstraction = link.split(separatorLink)
-    const link_abstraction = abstraction[1].split(",")
+    if (!link) {
 
-    const auxlat = link_abstraction[0]
-    const auxlng = link_abstraction[1]
+      // *****//
+    }
+    else {
+      const abstraction = link.split(separatorLink)
+      const link_abstraction = abstraction[1].split(",")
 
-    const lat = parseFloat(auxlat)
-    const lng = parseFloat(auxlng)
+      const auxlat = link_abstraction[0]
+      const auxlng = link_abstraction[1]
 
-    setLat(lat)
-    setLng(lng)
+      const lat = parseFloat(auxlat)
+      const lng = parseFloat(auxlng)
 
-    console.log({ link, link_abstraction, lat, lng })
+      setLat(lat)
+      setLng(lng)
+      setLink("")
 
+      console.log({ link, link_abstraction, lat, lng })
+    }
   }
 
 

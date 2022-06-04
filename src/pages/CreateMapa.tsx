@@ -17,14 +17,16 @@ const CreateEstabelecimento: React.FC = () => {
   const separatorLink = "@"
 
   const concate = ""
-  const lat = -16.3325529
-  const lng = -48.9549526
+  //const lat = -16.3325529
+  //const lng = -48.9549526
 
   const [road, setRoad] = useState('')
   const [complement, setComplement] = useState('')
   const [number, setNumber] = useState('')
   const [cep, setCep] = useState('')
   const [link, setLink] = useState('')
+  const [lat, setLat] = useState(-16.3325529)
+  const [lng, setLng] = useState(-48.9549526)
   const [latitude, setLatitude] = useState(0)
   const [longitude, setLongitude] = useState(0)
 
@@ -43,32 +45,35 @@ const CreateEstabelecimento: React.FC = () => {
 
 
   function handleLink() {
+    if (!link) {
 
-    if (!link.length) {
-      setLatitude(0)
-      setLongitude(0)
+      // *****//
+    }
+    else {
+      const abstraction = link.split(separatorLink)
+      const link_abstraction = abstraction[1].split(",")
+
+      const auxlat = link_abstraction[0]
+      const auxlng = link_abstraction[1]
+
+      const lat = parseFloat(auxlat)
+      const lng = parseFloat(auxlng)
+
+      setLatitude(lat)
+      setLat(lat)
+      setLongitude(lng)
+      setLng(lng)
       setLink("")
-
     }
 
-    const abstraction = link.split(separatorLink)
-    const link_abstraction = abstraction[1].split(",")
-
-    const auxlat = link_abstraction[0]
-    const auxlng = link_abstraction[1]
-
-    const lat = parseFloat(auxlat)
-    const lng = parseFloat(auxlng)
-
-    setLatitude(lat)
-    setLongitude(lng)
-    setLink("")
   }
 
   function handleMapClick(event: LeafletMouseEvent) {
     const { lat, lng } = event.latlng
     setLatitude(lat)
     setLongitude(lng)
+    setLat(lat)
+    setLng(lng)
   }
 
   function handleSelectImages(event: ChangeEvent<HTMLInputElement>) {
