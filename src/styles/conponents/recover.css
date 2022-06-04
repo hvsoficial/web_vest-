@@ -1,6 +1,6 @@
 #Login-page {
     display: flex;
-    background-color: #fff;
+    background-color: #00bf71;
 
 }
 
@@ -14,25 +14,15 @@ form.Login-user-form {
     overflow: hidden;
     padding: 64px 80px 64px 80px;
     width: 550px;
-    margin-left: 450px;
+    margin-left: 493px;
     margin-bottom: 159px;
     margin-top: 100px;
 }
 
 form.Login-user-form {
-    background-color: #00bf71;
+    background-color: #fff;
     display: flex;
     flex-direction: column;
-
-}
-
-.Login {
-    left: 16%;
-    position: relative;
-    object-position: center;
-    width: 65%;
-    height: 50%;
-    background-color: transparent;
 
 }
 
@@ -43,69 +33,43 @@ form.Login-user-form {
     margin: 10px;
 }
 
-.form-label {
-    align-content: center;
-    flex-direction: column;
-    margin: 0px 4px 8px;
-    color: black;
-
-}
-
-#name.form-control {
+#nameRecover.form-control {
     margin-top: 15px;
     padding: 7px 15px 7px 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 20px;
+    border-radius: 10px;
     margin-bottom: 10px;
     border-color: black;
 }
 
-#name.form-control:not(.highlight-card):hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
-    color: #00bf71;
-}
-
-#email.form-control {
+#emailRecover.form-control {
     margin-top: 15px;
     padding: 7px 15px 7px 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 20px;
+    border-radius: 10px;
     margin-bottom: 5px;
     border-color: black;
 }
 
-#email.form-control:not(.highlight-card):hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
-    color: #00bf71;
-}
-
-
-#password.form-control {
+#passwordRecover.form-control {
     margin-top: 15px;
     padding: 7px 15px 7px 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 20px;
+    border-radius: 10px;
     margin-bottom: 5px;
     border-color: black;
 
 }
 
-#password.form-control:not(.highlight-card):hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
-    color: #828f8a;
-}
-
-button.Login {
-    margin-top: 30px;
+button.RecoverClick {
+    background-color: #00bf71;
+    margin-top: 10px;
     padding: 10px 20px;
     display: flex;
     flex-direction: column;
@@ -114,20 +78,26 @@ button.Login {
     border: none;
 }
 
-button.Login:not(.highlight-card) {
+button.RecoverClick:not(.highlight-card) {
     cursor: pointer;
+    color: #fff;
 }
 
-button.Login:not(.highlight-card):hover {
+button.RecoverClick:not(.highlight-card):hover {
     transform: translateY(-3px);
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
-    color: #fff;
+}
+
+.PositionButtonRecover {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .Dados {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     font-size: 30px;
 }

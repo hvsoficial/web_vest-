@@ -13,7 +13,7 @@ import '../styles/pages/estabelecimento.css';
 interface Estabelecimento {
   id: number,
   name: string,
-  telefone: string,
+  telephone: string,
   latitude: number,
   longitude: number,
   about: string,
@@ -116,15 +116,15 @@ const EstabelecimentoUser: React.FC = () => {
 
             {estabelecimento.zap
               ? (
-                <a href={`https://api.whatsapp.com/send?phone=${estabelecimento.telefone}`} className="contact-button">
+                <a href={`https://api.whatsapp.com/send?phone=${estabelecimento.telephone}`} className="contact-button">
                   <FaPhone size={20} color="#fff" />
                   <FaWhatsapp size={20} color="#fff" />
-                  Entrar em contato : {estabelecimento.telefone}
+                  Entrar em contato : {estabelecimento.telephone}
                 </a>
               ) : (
                 <div className="contact-button-phone">
                   <FaPhone size={20} color="#fff" />
-                  Entrar em contato : {estabelecimento.telefone}
+                  Entrar em contato : {estabelecimento.telephone}
                 </div>
               )}
 

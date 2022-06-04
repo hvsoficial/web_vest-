@@ -5,7 +5,7 @@ import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
 
 import api from '../services/api'
 import mapIcon from '../utils/mapicon'
-//import mapMarker from '../images/map-marker.svg'
+import Logo from '../images/Icon_Logo.png'
 
 import '../styles/pages/estabelecimentos-map.css'
 
@@ -14,11 +14,6 @@ interface Estabelecimento {
     name: string,
     latitude: number,
     longitude: number,
-    // about: string,
-    // instructions: string,
-    // opening_hours: string,
-    // open_on_weekends: boolean,
-    // images: { id: number, url: string }[]
 }
 
 const EstabelecimentoMap: React.FC = () => {
@@ -50,12 +45,35 @@ const EstabelecimentoMap: React.FC = () => {
 
 
     return (
-        <div id="page-map">
-            <main>
+        <div id="page-map" style={{ flexDirection: 'column' }} >
+            <main className="top">
 
+                <div className="logo">
+
+                    <img src={Logo} alt="Logo Vest +" />
+
+                    <div>
+                        <label>Vest +</label>
+                    </div>
+
+
+                </div>
                 <div className="busca">
-                    <label htmlFor="name">Nome</label>
-                    <input id="name" />
+                    <input id="name_busca" type="text" placeholder="Search for a location" />
+                </div>
+
+                <div className="user">
+                    <Link to="/loginIn" >
+                        <button className="lodin">
+                            <label htmlFor="name" >Longin-In</label>
+                        </button>
+                    </Link>
+                    <label style={{ color: 'black' }}> / </label>
+                    <Link to="/loginUp" >
+                        <button className="lodin">
+                            <label htmlFor="name" >Longin-Up</label>
+                        </button>
+                    </Link>
                 </div>
 
             </main>
@@ -90,7 +108,7 @@ const EstabelecimentoMap: React.FC = () => {
 
 
 
-            <Link to="/estabelecimentos/create" className="create-estabelecimento">
+            <Link to="/estabelecimentosadm/create" className="create-estabelecimento">
                 <FiPlus size={32} color="#fff" />
             </Link>
         </div>
