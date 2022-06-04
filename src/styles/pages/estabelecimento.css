@@ -180,3 +180,102 @@
   transition: background-color 0.2s;
   width: 100%;
 }
+
+
+.campo-endereco {
+  margin-top: 24px;
+}
+
+.campo-endereco h4 {
+  margin-top: 5px;
+  color: #5c8599;
+}
+
+.campo-endereco h3 {
+  color: #5c8599;
+}
+
+.address-block {
+  display: flex;
+  margin-top: 24px;
+}
+
+.input-block {
+  margin-top: 24px;
+}
+
+.input-block label {
+  color: #8fa7b3;
+  display: flex;
+  line-height: 24px;
+  margin-bottom: 8px;
+}
+
+.input-block label span {
+  color: #8fa7b3;
+  font-size: 14px;
+  line-height: 24px;
+  margin-left: 24px;
+}
+
+.input-block input,
+.input-block textarea {
+  background: #f5f8fa;
+  border: 1px solid #d3e2e5;
+  border-radius: 20px;
+  color: #5c8599;
+  outline: none;
+  width: 100%;
+}
+
+.input-block input {
+  height: 64px;
+  padding: 0 16px;
+}
+
+.input-block textarea {
+  line-height: 28px;
+  max-height: 240px;
+  min-height: 120px;
+  padding: 16px;
+  resize: vertical;
+}
+
+.address-block input,
+.address-block textarea {
+  background: #f5f8fa;
+  border: 1px solid #d3e2e5;
+  border-radius: 20px;
+  color: #5c8599;
+  outline: none;
+  width: 100%;
+}
+
+.address-block input {
+  height: 64px;
+  padding: 0 16px;
+}
+
+.address-block textarea {
+  line-height: 28px;
+  max-height: 240px;
+  min-height: 120px;
+  padding: 16px;
+  resize: vertical;
+}
+
+.address-block label {
+  color: #8fa7b3;
+  display: flex;
+  line-height: 24px;
+  margin-bottom: 8px;
+}
+
+.address-block .complement-block {
+  margin-right: 40px;
+  width: 400px;
+}
+
+.address-block .nuber-block {
+  width: 100px;
+}

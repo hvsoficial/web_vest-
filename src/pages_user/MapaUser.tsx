@@ -13,9 +13,14 @@ import '../styles/pages/estabelecimento.css';
 interface Estabelecimento {
   id: number,
   name: string,
+  cnpj: string,
   telephone: string,
   latitude: number,
   longitude: number,
+  road: number,
+  complement: number,
+  number: number,
+  cep: number,
   about: string,
   instructions: string,
   opening_hours: string,
@@ -76,6 +81,10 @@ const EstabelecimentoUser: React.FC = () => {
             <h1>{estabelecimento.name}</h1>
             <p>{estabelecimento.about}</p>
 
+            <hr />
+
+            <h2>Endereço </h2>
+
             <div className="map-container">
               <Map center={[estabelecimento.latitude, estabelecimento.longitude]} zoom={16} style={{ width: '100%', height: 280 }}
                 dragging={false} touchZoom={false} zoomControl={false} scrollWheelZoom={false} doubleClickZoom={false}>
@@ -87,6 +96,24 @@ const EstabelecimentoUser: React.FC = () => {
                 <a href={`https://www.google.com/maps/dir/?api=1&destination=${estabelecimento.latitude},${estabelecimento.longitude}`}
                   target="_blank" rel="noopener noreferrer">Ver rotas no Google Maps</a>
               </footer>
+            </div>
+            <div className="input-block">
+              <label htmlFor="address1">Rua</label>
+              <input id="address1" value={estabelecimento.road} disabled />
+            </div>
+            <div className="address-block" >
+              <div className="complement-block">
+                <label htmlFor="complement">Complemento</label>
+                <input id="complement" value={estabelecimento.complement} disabled />
+              </div>
+              <div className="nuber-block">
+                <label htmlFor="number">Numero</label>
+                <input id="number" value={estabelecimento.number} disabled />
+              </div>
+            </div >
+            <div className="input-block">
+              <label htmlFor="cep">CEP</label>
+              <input id="cep" value={estabelecimento.cep} disabled />
             </div>
 
             <hr />
