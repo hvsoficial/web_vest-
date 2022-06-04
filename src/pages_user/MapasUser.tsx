@@ -62,7 +62,7 @@ const EstabelecimentoMapUser: React.FC = () => {
                         <Popup closeButton={false} minWidth={240} maxWidth={240} className="map-popup">
                             {/* O Popup gera um popup após ser clicado em um Marker */}
                             {estabelecimento.name}
-                            <Link to={`/estabelecimentos/${estabelecimento.id}`}>
+                            <Link to={`/estabelecimentosadm/${estabelecimento.id}`}>
                                 <FiActivity size={20} color="#fff" />
                             </Link>
                         </Popup>
