@@ -98,7 +98,7 @@ const EstabelecimentoMap: React.FC = () => {
                     <Marker key={estabelecimento.id} position={[estabelecimento.latitude, estabelecimento.longitude]} icon={mapIcon} >
                         <Popup closeButton={false} minWidth={240} maxWidth={240} className="map-popup">
                             {estabelecimento.name}
-                            <Link to={`/estabelecimentos/${estabelecimento.id}`}>
+                            <Link to={`/estabelecimentosadm/${estabelecimento.id}`}>
                                 <FiActivity size={20} color="#fff" />
                             </Link>
                         </Popup>
